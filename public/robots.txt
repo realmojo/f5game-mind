@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://test.f5game.com.kr/sitemap.xml
+Sitemap: https://mindpang.com/sitemap.xml

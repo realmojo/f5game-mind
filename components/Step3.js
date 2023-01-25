@@ -46,6 +46,7 @@ export const Step3 = ({ next, prev, idx, testItem, S3_KEY }) => {
         testIdx: idx,
         results,
       };
+      console.log(JSON.stringify(results));
       console.log(params);
       const data = await axios.post(
         "https://f5game.co.kr/api/test/update/result/",

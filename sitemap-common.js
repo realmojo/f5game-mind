@@ -3,7 +3,7 @@ const fs = require("fs");
 const prettier = require("prettier");
 
 // 오늘 날짜 가져오기 & 도메인 설정
-const DOMAIN = "https://test.f5game.co.kr";
+const DOMAIN = "https://mindpang.com";
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
 const replaceAll = (str, searchStr, replaceStr) => {

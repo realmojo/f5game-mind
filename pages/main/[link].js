@@ -19,7 +19,7 @@ export default function Main({ item }) {
       <>
         <HeadComponent
           item={item}
-          canonicalUrl={`https://test.f5game.co.kr/main/${item.link}`}
+          canonicalUrl={`https://mindpang.com/main/${item.link}`}
         />
         <div
           className="test-main-background"

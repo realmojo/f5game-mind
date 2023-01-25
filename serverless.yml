@@ -1,8 +1,8 @@
-testpang-deploy:
+mindpang-deploy:
   component: "./node_modules/@sls-next/serverless-component"
   inputs:
-    bucketName: "f5game-test"
+    bucketName: "f5game-mind"
     bucketRegion: "ap-northeast-2"
     cloudfront:
-      distributionId: "E2XS98IJ0240FH"
-      comment: "testpang deploy"
+      distributionId: "E3O70SH0E4FXX5"
+      comment: "mindpang deploy"

@@ -56,7 +56,7 @@ export default function Result() {
       {item ? (
         <HeadComponent
           item={item}
-          canonicalUrl={`https://test.f5game.co.kr/result/${item.link}`}
+          canonicalUrl={`https://mindpang.com/result/${item.link}`}
         />
       ) : (
         ""

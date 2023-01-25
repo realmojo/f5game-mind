@@ -13,7 +13,7 @@ export const Header = ({ NODE_ENV, items }) => {
   return (
     <header>
       <div className="header-wrap">
-        <Link href="/">테스트팡</Link>
+        <Link href="/">마인드팡</Link>
         <img
           src="https://f5game.s3.ap-northeast-2.amazonaws.com/testpang-logo.png"
           style={{

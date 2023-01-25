@@ -3,6 +3,13 @@
 @tailwind utilities;
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+/**
+#FAF8F1
+#FAEAB1
+#E5BA73
+#C58940
+*/
+
 * {
   font-family: "Nanum Gothic", sans-serif;
   box-sizing: border-box;
@@ -111,10 +118,11 @@ main {
   mask-image: linear-gradient(to bottom, rgba(1, 1, 1, 1), rgba(0, 0, 0, 0));
 }
 .test-main {
-  background: #2d3436;
+  background: #faf8f1;
   /* background: transparent; */
   position: relative;
   color: white;
+  height: 100vh;
 }
 .test-main > .ant-layout {
   background: transparent;
@@ -131,13 +139,14 @@ main {
   padding-bottom: 20px;
   font-weight: bold;
   font-size: 28px;
+  color: #c58940;
 }
 .test-logo > p {
   margin: 0 auto;
   text-align: center;
   width: 336px;
   font-size: 16px;
-  color: rgb(219, 219, 219);
+  color: #e5ba73;
 }
 .test-logo > .name-input {
   width: 336px;
@@ -160,6 +169,7 @@ main {
   padding: 10px;
   padding-left: 14px;
   font-size: 24px;
+  color: #c58940;
 }
 .test-play-radio {
   padding: 4px 10px;
@@ -239,5 +249,26 @@ main {
   font-size: 12px;
 }
 .ant-radio-wrapper span {
-  color: white;
+  color: #e5ba73;
+}
+
+input[type="radio"] {
+  background-color: #fff;
+  border: 2px solid #e5ba73;
+}
+input[type="radio"]:checked {
+  background-color: #e5ba73;
+}
+.ant-radio-checked .ant-radio-inner {
+  border-color: #e5ba73 !important ;
+  background-color: #e5ba73 !important;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  background-color: #c58940;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: #faeab1;
+  background-color: #faeab1;
 }

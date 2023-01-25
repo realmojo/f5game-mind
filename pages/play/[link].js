@@ -50,7 +50,7 @@ export default function Play({ item }) {
     <>
       <HeadComponent
         item={item}
-        canonicalUrl={`https://test.f5game.co.kr/play/${item.link}`}
+        canonicalUrl={`https://mindpang.com/play/${item.link}`}
       />
       <main className="test-main">
         <Layout className="test-layout">

@@ -1,6 +1,6 @@
 {
-  "short_name": "테스트팡",
-  "name": "테스트팡",
+  "short_name": "마인드팡",
+  "name": "마인드팡",
   "icons": [
     {
       "src": "favicon.ico",
@@ -28,7 +28,7 @@
       "16": "favicon-16x16.png"
     },
 
-    "default_title": "테스트팡",
+    "default_title": "마인드팡",
     "use_navigation_bar": true
   }
 }

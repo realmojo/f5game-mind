@@ -5,7 +5,7 @@ const prettier = require("prettier");
 
 // 오늘 날짜 가져오기 & 도메인 설정
 const getDate = new Date().toISOString();
-const DOMAIN = "https://test.f5game.co.kr";
+const DOMAIN = "https://mindpang.com";
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 (async () => {
   const { data } = await axios.get(
