@@ -20,10 +20,11 @@
 header {
   height: 58px;
   background: rgb(28, 116, 233);
+  background: rgb(229, 186, 115);
   background: linear-gradient(
     90deg,
-    rgba(28, 116, 233, 1) 0%,
-    rgba(101, 162, 244, 1) 100%
+    rgba(229, 186, 115, 1) 0%,
+    rgba(250, 234, 177, 1) 100%
   );
   display: flex;
   flex-direction: row;
@@ -36,44 +37,44 @@ header > .header-wrap {
   padding-top: 10px;
 }
 header > .header-wrap > a {
-  color: white;
+  color: #c58940;
   font-size: 24px;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 header > .header-wrap > button {
   color: white;
   border: none;
-  background-color: #0088ff;
+  background-color: #c58940;
   float: right;
   margin-right: 10px;
   margin-top: 2px;
 }
 header > .header-wrap > button:hover {
-  background-color: #0376db;
+  background-color: #c58940;
   color: white !important;
   margin-top: 4px;
 }
 
 main {
-  background: #2d3436;
+  background: #faf8f1;
 }
 .ant-row {
-  background: #2d3436;
+  background: #faf8f1;
 }
 .ant-card {
   text-align: center;
-  background: #2d3436;
-  border: 1px solid #37393a !important;
+  background: #faf8f1;
+  border: 1px solid #faeab1 !important;
 }
 .ant-card:hover {
   box-shadow: 0 0 8px rgb(221, 222, 224);
 }
 .ant-card-body {
-  background: #646b6e;
+  background: #faeab1;
   border-radius: 0 0 8px 8px !important;
 }
 .ant-card-body h2 {
-  color: rgb(215, 216, 221);
+  color: #c58940;
 }
 
 .make-layout {
@@ -122,7 +123,7 @@ main {
   /* background: transparent; */
   position: relative;
   color: white;
-  height: 100vh;
+  height: 100vh !important;
 }
 .test-main > .ant-layout {
   background: transparent;
@@ -271,4 +272,17 @@ input[type="radio"]:checked {
 .ant-radio:hover .ant-radio-inner {
   border-color: #faeab1;
   background-color: #faeab1;
+}
+
+.loading-title,
+.result-title {
+  color: #c58940;
+}
+
+.test-result-text {
+  color: #e5ba73;
+}
+
+.test-layout h2 {
+  color: #c58940;
 }

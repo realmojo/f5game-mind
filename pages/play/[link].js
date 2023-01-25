@@ -33,7 +33,7 @@ export default function Play({ item }) {
       }
     } else if (item.type === "answer" || item.type === "random") {
       const nextValue = index + 1;
-      if (nextValue === item.contents.length) {
+      if (nextValue >= item.contents.length) {
         setIsResultLoading(true);
       } else {
         setCurrent(nextValue);

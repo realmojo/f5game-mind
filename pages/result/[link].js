@@ -65,7 +65,7 @@ export default function Result() {
         <Layout className="test-layout">
           {resultItem ? (
             <React.Fragment>
-              <h1 className="px-2 pt-4 pb-4 text-2xl font-bold text-center">
+              <h1 className="px-2 pt-4 pb-4 text-2xl font-bold text-center result-title">
                 {name}님 결과분석
               </h1>
               {resultItem.url ? (
@@ -79,7 +79,7 @@ export default function Result() {
               )}
               {item.type === "answer" ? (
                 <>
-                  <div className="px-2 pt-4 text-2xl">
+                  <div className="px-2 pt-4 text-2xl result-title">
                     테스트 점수{" "}
                     <span className="text-blue-600 font-bold mr-2">
                       {total} 점

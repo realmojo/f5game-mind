@@ -55,7 +55,7 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
   }, []);
   return (
     <>
-      <h1 className="text-3xl font-bold text-center py-8">
+      <h1 className="text-3xl font-bold text-center py-8 loading-title">
         {isLoading ? "결과를 기다리고 있습니다." : "결과를 확인해 주세요"}
       </h1>
       {isLoading ? (
