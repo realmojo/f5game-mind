@@ -18,7 +18,7 @@
 }
 
 header {
-  height: 58px;
+  height: 54px;
   background: rgb(28, 116, 233);
   background: rgb(229, 186, 115);
   background: linear-gradient(
@@ -26,15 +26,15 @@ header {
     rgba(229, 186, 115, 1) 0%,
     rgba(250, 234, 177, 1) 100%
   );
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  z-index: 99;
+  position: fixed;
 }
 header > .header-wrap {
   width: 900px;
-  margin: 0 auto;
-  padding-top: 10px;
+  margin: 7px auto;
+  padding-left: 10px;
 }
 header > .header-wrap > a {
   color: #c58940;
@@ -50,9 +50,32 @@ header > .header-wrap > button {
   margin-top: 2px;
 }
 header > .header-wrap > button:hover {
-  background-color: #c58940;
+  background-color: #caa06c;
   color: white !important;
-  margin-top: 4px;
+}
+header > .mindpang-menu {
+  background-color: #faf8f1;
+  margin: 0px auto;
+  width: 900px;
+  height: 46px;
+  display: flex;
+  list-style: none;
+  flex-wrap: nowrap;
+  padding: 0 10px;
+  /* margin-top: 20px; */
+}
+.menu-item {
+  height: 46px;
+  padding: 12px 20px;
+  color: #a1a2a3;
+  display: inline-block;
+  font-size: 14px;
+}
+.menu-item:hover,
+.menu-item-active {
+  background-color: #faeab1 !important;
+  color: #c58940 !important;
+  transition: 0.2s !important;
 }
 
 main {
@@ -86,6 +109,17 @@ main {
 .site-layout {
   width: 900px;
   margin: 0 auto;
+  padding-top: 100px;
+}
+.ant-input {
+  border-color: #e5ba73 !important;
+  border-radius: 0;
+}
+.ant-input:hover,
+.ant-input:active,
+.ant-input:after,
+.ant-input:focus {
+  border-color: #e5ba73 !important;
 }
 
 @media (max-width: 899px) {
@@ -219,12 +253,16 @@ main {
   height: 40px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   header {
     width: 100%;
   }
   header > .header-wrap {
     padding-left: 10px;
+    width: 100%;
+  }
+  header > .mindpang-menu {
+    padding: 0px;
   }
   .test-logo {
     margin-top: 0px;

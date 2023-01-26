@@ -20,7 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#338ff1",
+  "theme_color": "#E5BA73",
   "background_color": "#ffffff",
   "sidebar_action": {
     "default_page": "index.html",

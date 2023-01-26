@@ -48,8 +48,32 @@ const replaceAll = (str, searchStr, replaceStr) => {
       <url>
         <loc>${DOMAIN}</loc>
         <lastmod>2023-01-01</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${DOMAIN}/life</loc>
+        <lastmod>2023-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${DOMAIN}/love</loc>
+        <lastmod>2023-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${DOMAIN}/health</loc>
+        <lastmod>2023-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${DOMAIN}/entertain</loc>
+        <lastmod>2023-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
       </url>
       ${replaceAll(pagesSitemap, ",", "")}
     </urlset>`;

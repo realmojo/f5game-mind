@@ -1,8 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document(NODE_ENV) {
-  console.log(NODE_ENV.__NEXT_DATA__.buildId);
-  // console.log(process.env);
   return (
     <Html lang="en">
       <Head />

@@ -13,30 +13,30 @@ const defaultContent = {
   questions: [
     {
       key: 0,
-      score: 0,
+      score: 1,
       type: "text", // image
-      text: "",
+      text: "전혀 아니다.",
       url: "",
     },
     {
       key: 1,
-      score: 0,
+      score: 2,
       type: "text", // image
-      text: "",
+      text: "아니다.",
       url: "",
     },
     {
       key: 2,
-      score: 0,
+      score: 3,
       type: "text", // image
-      text: "",
+      text: "약간 그렇다.",
       url: "",
     },
     {
       key: 3,
-      score: 0,
+      score: 4,
       type: "text", // image
-      text: "",
+      text: "매우 그렇다.",
       url: "",
     },
   ],
@@ -180,30 +180,30 @@ export const Step2 = ({ next, prev, idx, testItem, S3_KEY }) => {
         questions: [
           {
             key: 0,
-            score: 0,
+            score: 1,
             type: "text", // image
-            text: "",
+            text: "전혀 아니다.",
             url: "",
           },
           {
             key: 1,
-            score: 0,
+            score: 2,
             type: "text", // image
-            text: "",
+            text: "아니다.",
             url: "",
           },
           {
             key: 2,
-            score: 0,
+            score: 3,
             type: "text", // image
-            text: "",
+            text: "약간 그렇다.",
             url: "",
           },
           {
             key: 3,
-            score: 0,
+            score: 4,
             type: "text", // image
-            text: "",
+            text: "매우 그렇다.",
             url: "",
           },
         ],
@@ -256,7 +256,7 @@ export const Step2 = ({ next, prev, idx, testItem, S3_KEY }) => {
         const { data } = await axios.get(
           `https://f5game.co.kr/api/test/contents/?testIdx=${idx}`
         );
-        setContents(data.contents);
+        setContents(data.contents ? data.contents : [defaultContent]);
         setLogo(testItem.logo);
         setContentType(data.type);
       })();
@@ -297,71 +297,88 @@ export const Step2 = ({ next, prev, idx, testItem, S3_KEY }) => {
             onChange={onChangeQuestionTextCount}
           /> */}
           <Divider />
-          {contents.map((item, key) => (
-            <div key={key} className="mb-4">
-              <div className="test-subtitle mb-1">테스트 문항 {key + 1}</div>
-              <div>
-                <div className="text-sm font-bold mb-1">테스트 제목 텍스트</div>
-                <Input
-                  size="large"
-                  placeholder="제목을 적어주세요"
-                  className="mb-4"
-                  value={item.title.text}
-                  onChange={(e) => onChangeTitleContent(key, e.target.value)}
-                />
-                <div className="text-sm font-bold mb-1">테스트 제목 이미지</div>
-                {item.title.url ? (
-                  <img
-                    src={item.title.url}
-                    style={{ width: 400, height: 300 }}
+
+          <div className="mt-4">
+            <Button status="danger" onClick={() => removeSetQuestionArr()}>
+              문항 삭제
+            </Button>
+            <Button
+              type="primary"
+              className="ml-2"
+              onClick={() => addSetQuestionArr()}
+            >
+              문항 추가
+            </Button>
+          </div>
+          {contents !== null &&
+            contents.map((item, key) => (
+              <div key={key} className="mb-4">
+                <div className="test-subtitle mb-1">테스트 문항 {key + 1}</div>
+                <div>
+                  <div className="text-sm font-bold mb-1">
+                    테스트 제목 텍스트
+                  </div>
+                  <Input
+                    size="large"
+                    placeholder="제목을 적어주세요"
+                    className="mb-4"
+                    value={item.title.text}
+                    onChange={(e) => onChangeTitleContent(key, e.target.value)}
                   />
-                ) : (
-                  ""
-                )}
-                <input
-                  type="file"
-                  name="file"
-                  onChange={(e) => handleFilesTitleContent(e, key)}
-                  className="mb-4"
-                />
+                  <div className="text-sm font-bold mb-1">
+                    테스트 제목 이미지
+                  </div>
+                  {item.title.url ? (
+                    <img
+                      src={item.title.url}
+                      style={{ width: 400, height: 300 }}
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={(e) => handleFilesTitleContent(e, key)}
+                    className="mb-4"
+                  />
 
-                <div className="text-sm font-bold mb-1">테스트 질문</div>
+                  <div className="text-sm font-bold mb-1">테스트 질문</div>
 
-                <Radio.Group onChange={onChangeAnswer} value={item.answer}>
-                  {item.questions.map((_item, _key) => (
-                    <div className="flex" key={_key}>
-                      <Radio
-                        value={_key}
-                        onChange={(e) => onChangeAnswerContent(key, _key)}
-                        style={{ marginTop: -14 }}
-                      />
-                      <Input
-                        size="large"
-                        placeholder="질문을 적어주세요"
-                        className="mb-4"
-                        value={_item.text}
-                        onChange={(e) =>
-                          onChangeQuestionContent(key, _key, e.target.value)
-                        }
-                      />
-                      <Input
-                        type="number"
-                        min={1}
-                        max={4}
-                        defaultValue={0}
-                        value={_item.score}
-                        onChange={(e) =>
-                          onChangeScoreContent(key, _key, e.target.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </Radio.Group>
+                  <Radio.Group onChange={onChangeAnswer} value={item.answer}>
+                    {item.questions.map((_item, _key) => (
+                      <div className="flex" key={_key}>
+                        <Radio
+                          value={_key}
+                          onChange={(e) => onChangeAnswerContent(key, _key)}
+                          style={{ marginTop: -14 }}
+                        />
+                        <Input
+                          size="large"
+                          placeholder="질문을 적어주세요"
+                          className="mb-4"
+                          value={_item.text}
+                          onChange={(e) =>
+                            onChangeQuestionContent(key, _key, e.target.value)
+                          }
+                        />
+                        <Input
+                          type="number"
+                          min={1}
+                          max={4}
+                          defaultValue={0}
+                          value={_item.score}
+                          onChange={(e) =>
+                            onChangeScoreContent(key, _key, e.target.value)
+                          }
+                        />
+                      </div>
+                    ))}
+                  </Radio.Group>
+                </div>
+                <Divider />
               </div>
-              <Divider />
-            </div>
-          ))}
-
+            ))}
           <div className="mt-4">
             <Button status="danger" onClick={() => removeSetQuestionArr()}>
               문항 삭제

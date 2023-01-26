@@ -3,7 +3,9 @@ import { Layout, Card, Col, Row } from "antd";
 import { Header } from "../components/Header";
 import Link from "next/link";
 import axios from "axios";
+import { Footer } from "../components/Footer";
 // import { Footer } from "../components/Footer";
+const { Meta } = Card;
 
 export default function Home({ items, NODE_ENV }) {
   return (
@@ -17,7 +19,7 @@ export default function Home({ items, NODE_ENV }) {
           name="description"
           content="마인드팡의 모든 테스트들은 무료로 즐길 수 있습니다. 드라마, 연예, 방송 등 다양한 테스트를 즐겨보세요."
         />
-        <meta name="theme-color" content="#338ff1" />
+        <meta name="theme-color" content="#E5BA73" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="canonical" href="https://mindpang.com" />
@@ -64,7 +66,7 @@ export default function Home({ items, NODE_ENV }) {
         />
       </Head>
       <main>
-        <Header NODE_ENV={NODE_ENV} items={items} />
+        <Header NODE_ENV={NODE_ENV} items={items} category="all" />
         <Layout className="site-layout">
           <Row
             className="pt-4 pb-4 px-2"
@@ -98,19 +100,26 @@ export default function Home({ items, NODE_ENV }) {
             ))}
           </Row>
 
-          <div className="plus-add">
+          {/* <div className="plus-add">
             <a href="https://pf.kakao.com/_gqbxixj">
               <img src="https://f5game.s3.ap-northeast-2.amazonaws.com/plus-add.png" />
             </a>
-          </div>
+          </div> */}
         </Layout>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
 
-export const getServerSideProps = async () => {
-  const res = await axios.get(`${process.env.BASE_API_URL}/test/list`);
+export const getServerSideProps = async ({ query }) => {
+  const { search } = query;
+  let searchQueryString = "";
+  if (search) {
+    searchQueryString = `?search=${search}`;
+  }
+  const res = await axios.get(
+    `${process.env.BASE_API_URL}/test/list/${searchQueryString}`
+  );
   return { props: { items: res.data, NODE_ENV: process.env.NODE_ENV } };
 };

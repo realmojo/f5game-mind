@@ -7,8 +7,32 @@
   <url>
     <loc>https://mindpang.com</loc>
     <lastmod>2023-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mindpang.com/life</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mindpang.com/love</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mindpang.com/health</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mindpang.com/entertain</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc
@@ -96,7 +120,7 @@
   </url>
   <url>
     <loc
-      >https://mindpang.com/main/60%EB%8C%80%EC%9D%98-%EB%82%98%EC%9D%98-%EB%AA%A8%EC%8A%B5%EC%9D%80?</loc
+      >https://mindpang.com/main/60%EB%8C%80%EC%9D%98-%EB%82%98%EC%9D%98-%EB%AA%A8%EC%8A%B5%EC%9D%80</loc
     >
     <lastmod>2023-01-22</lastmod>
   </url>
@@ -163,5 +187,11 @@
       >https://mindpang.com/main/%EC%97%AD%EB%8C%80-%EB%8C%80%ED%86%B5%EB%A0%B9-%ED%85%8C%EC%8A%A4%ED%8A%B8</loc
     >
     <lastmod>2023-01-24</lastmod>
+  </url>
+  <url>
+    <loc
+      >https://mindpang.com/main/%EB%84%88%EB%93%9C%EB%82%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8</loc
+    >
+    <lastmod>2023-01-26</lastmod>
   </url>
 </urlset>

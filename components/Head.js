@@ -8,7 +8,7 @@ export const HeadComponent = ({ item, canonicalUrl }) => {
       <meta name="robots" content="index, follow" />
       <meta charSet="utf-8" />
       <meta name="description" content={item.description} />
-      <meta name="theme-color" content="#338ff1" />
+      <meta name="theme-color" content="#E5BA73" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="title" content={`${item.title} - 마인드팡`} />
       <meta name="plink" content={encodeURI(canonicalUrl)} />
