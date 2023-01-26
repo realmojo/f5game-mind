@@ -24,21 +24,21 @@ export default function Play({ item }) {
       return;
     }
 
-    if (item.type === "score") {
-      const nextValue = index + 1;
-      if (index >= item.contents.length) {
-        setIsResultLoading(true);
-      } else {
-        setCurrent(nextValue);
-      }
-    } else if (item.type === "answer" || item.type === "random") {
-      const nextValue = index + 1;
-      if (nextValue >= item.contents.length) {
-        setIsResultLoading(true);
-      } else {
-        setCurrent(nextValue);
-      }
+    // if (item.type === "score") {
+    //   const nextValue = index + 1;
+    //   if (index >= item.contents.length) {
+    //     setIsResultLoading(true);
+    //   } else {
+    //     setCurrent(nextValue);
+    //   }
+    // } else if (item.type === "answer" || item.type === "random") {
+    const nextValue = index + 1;
+    if (nextValue >= item.contents.length) {
+      setIsResultLoading(true);
+    } else {
+      setCurrent(nextValue);
     }
+    // }
     window.scrollTo(0, 0);
   };
 

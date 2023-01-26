@@ -33,7 +33,7 @@ header {
 }
 header > .header-wrap {
   width: 900px;
-  margin: 7px auto;
+  margin: 9px auto;
   padding-left: 10px;
 }
 header > .header-wrap > a {
@@ -259,6 +259,7 @@ main {
   }
   header > .header-wrap {
     padding-left: 10px;
+    margin: 7px auto;
     width: 100%;
   }
   header > .mindpang-menu {
@@ -323,4 +324,7 @@ input[type="radio"]:checked {
 
 .test-layout h2 {
   color: #c58940;
+}
+.ant-input-search-button {
+  background: #faeab1;
 }

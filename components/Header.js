@@ -66,7 +66,7 @@ export const Header = ({ NODE_ENV, items, category }) => {
         {NODE_ENV === "development" ? (
           <span className="pt-2 pr-2">
             <Link href="/make">
-              <Button type="primary" size="large">
+              <Button type="primary" size="small">
                 만들기
               </Button>
             </Link>
