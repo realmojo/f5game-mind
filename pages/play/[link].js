@@ -26,7 +26,7 @@ export default function Play({ item }) {
 
     if (item.type === "score") {
       const nextValue = index + 1;
-      if (index === item.contents.length) {
+      if (index >= item.contents.length) {
         setIsResultLoading(true);
       } else {
         setCurrent(nextValue);
@@ -142,9 +142,9 @@ export default function Play({ item }) {
                       {(Number(current) + Number(offset)) % 4 === 3 ||
                       Number(current) + Number(offset) === contentLength ? (
                         <div className="my-3">
-                          <div className="mt-2">
+                          {/* <div className="mt-2">
                             <AdsensePlay slotId={item.adsenses.play} />
-                          </div>
+                          </div> */}
                           <div className="text-center mt-4">
                             <Button
                               type="primary"

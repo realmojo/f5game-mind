@@ -3,9 +3,10 @@ import { Layout, Card, Col, Row } from "antd";
 import { Header } from "../components/Header";
 import Link from "next/link";
 import axios from "axios";
-// import { Footer } from "../components/Footer";
 
-export default function Home({ items, NODE_ENV }) {
+const { Meta } = Card;
+
+export default function Category({ items, NODE_ENV }) {
   return (
     <>
       <Head>
@@ -110,7 +111,10 @@ export default function Home({ items, NODE_ENV }) {
   );
 }
 
-export const getServerSideProps = async () => {
-  const res = await axios.get(`${process.env.BASE_API_URL}/test/list`);
+export const getServerSideProps = async ({ params }) => {
+  const { category } = params;
+  const res = await axios.get(
+    `${process.env.BASE_API_URL}/test/list?category=${category}`
+  );
   return { props: { items: res.data, NODE_ENV: process.env.NODE_ENV } };
 };

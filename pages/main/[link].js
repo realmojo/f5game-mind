@@ -4,7 +4,6 @@ import { Button, Input, Layout } from "antd";
 import { useRouter } from "next/router";
 import { AdsenseStart } from "../../components/Adsense/AdsenseStart";
 import { HeadComponent } from "../../components/Head";
-
 export default function Main({ item }) {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -47,7 +46,7 @@ export default function Main({ item }) {
                   onChange={onChangeName}
                 />
               </div>
-              <AdsenseStart slotId={item.adsenses.main} />
+              {/* <AdsenseStart slotId={item.adsenses.main} /> */}
               <div className="text-center pt-2">
                 <a href={`/play/${item.link}`}>
                   <Button type="primary" className="btn-start">
