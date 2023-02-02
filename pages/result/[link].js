@@ -5,6 +5,7 @@ import { AdsenseComplete } from "../../components/Adsense/AdsenseComplete";
 import { useRouter } from "next/router";
 import { Share } from "../../components/Share";
 import { TestList } from "../../components/TestList";
+import { Header } from "../../components/Header";
 
 export default function Result() {
   const router = useRouter();
@@ -62,6 +63,7 @@ export default function Result() {
         ""
       )}
       <main className="test-main">
+        <Header />
         <Layout className="test-layout">
           {resultItem ? (
             <React.Fragment>

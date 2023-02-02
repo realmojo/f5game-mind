@@ -19,6 +19,10 @@ const replaceAll = (str, searchStr, replaceStr) => {
             <loc>${DOMAIN}/main/${encodeURI(item.link)}</loc>
             <lastmod>${item.regdate.substring(0, 10)}</lastmod>
           </url>
+          <url>
+            <loc>${DOMAIN}/play/${encodeURI(item.link)}</loc>
+            <lastmod>${item.regdate.substring(0, 10)}</lastmod>
+          </url>
           `;
   })}`;
 
@@ -65,6 +69,12 @@ const replaceAll = (str, searchStr, replaceStr) => {
       </url>
       <url>
         <loc>${DOMAIN}/health</loc>
+        <lastmod>2023-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${DOMAIN}/money</loc>
         <lastmod>2023-01-01</lastmod>
         <changefreq>always</changefreq>
         <priority>1.00</priority>

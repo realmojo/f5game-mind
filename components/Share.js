@@ -4,7 +4,7 @@ import { message, Button } from "antd";
 const success = () => {
   message.success("URL이 복사되었습니다.");
 };
-export const Share = ({ item, total, totalCount, contentTotalCount }) => {
+export const Share = ({ item, total }) => {
   const shareFacebook = () => {
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=https://mindpang.com/main/${encodeURIComponent(

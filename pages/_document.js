@@ -22,16 +22,19 @@ export default function Document(NODE_ENV) {
       ) : (
         <>
           <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522"
+            crossOrigin="anonymous"
+          />
+          <script
             defer
             src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"
           />
           <script
-            defer
             type="text/javascript"
             src="//wcs.naver.net/wcslog.js"
           ></script>
           <script
-            defer
             type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: `
@@ -42,11 +45,6 @@ export default function Document(NODE_ENV) {
             }
           `,
             }}
-          />
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522"
-            crossOrigin="anonymous"
           />
           <script
             async

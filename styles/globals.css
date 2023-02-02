@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face {
+  font-family: "YESMyoungjo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESMyoungjo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /**
 #FAF8F1
@@ -32,7 +39,7 @@ header {
   position: fixed;
 }
 header > .header-wrap {
-  width: 900px;
+  width: 1200px;
   margin: 9px auto;
   padding-left: 10px;
 }
@@ -56,7 +63,7 @@ header > .header-wrap > button:hover {
 header > .mindpang-menu {
   background-color: #faf8f1;
   margin: 0px auto;
-  width: 900px;
+  width: 1200px;
   height: 46px;
   display: flex;
   list-style: none;
@@ -107,7 +114,7 @@ main {
   padding: 20px;
 }
 .site-layout {
-  width: 900px;
+  width: 1200px;
   margin: 0 auto;
   padding-top: 100px;
 }
@@ -130,6 +137,10 @@ main {
 
 .ant-radio-group {
   width: 100%;
+}
+.ant-btn > span {
+  font-weight: bold;
+  /* font-family: "YESMyoungjo-Regular", sans-serif; */
 }
 .ant-btn-primary {
   background-color: #0088ff !important;
@@ -157,14 +168,18 @@ main {
   /* background: transparent; */
   position: relative;
   color: white;
+  height: 100% !important;
+}
+.test-main.loading {
   height: 100vh !important;
 }
 .test-main > .ant-layout {
   background: transparent;
 }
 .test-layout {
-  width: 600px;
+  width: 900px;
   margin: 0 auto;
+  padding-top: 100px;
 }
 .test-logo {
   margin-top: 40px;
@@ -178,18 +193,18 @@ main {
 }
 .test-logo > p {
   margin: 0 auto;
-  text-align: center;
-  width: 336px;
+  /* text-align: center; */
+  /* width: 336px; */
   font-size: 16px;
   color: #e5ba73;
 }
 .test-logo > .name-input {
-  width: 336px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px 0;
 }
 .btn-start {
-  width: 336px;
+  width: 100%;
   height: 40px;
   margin: 0 auto;
   font-weight: bold;
@@ -200,6 +215,7 @@ main {
 }
 
 .test-play-title {
+  font-family: "YESMyoungjo-Regular", sans-serif;
   font-weight: bold;
   padding: 10px;
   padding-left: 14px;
@@ -253,7 +269,7 @@ main {
   height: 40px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   header {
     width: 100%;
   }
@@ -277,6 +293,16 @@ main {
   .test-play-img {
     padding-top: 0;
   }
+  .test-logo > p {
+    padding: 0 10px;
+  }
+  .search-layout {
+    width: 100% !important;
+  }
+  .ant-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 .footer-info {
@@ -289,7 +315,8 @@ main {
   font-size: 12px;
 }
 .ant-radio-wrapper span {
-  color: #e5ba73;
+  color: #dd9d35;
+  font-family: "YESMyoungjo-Regular", sans-serif;
 }
 
 input[type="radio"] {
@@ -327,4 +354,67 @@ input[type="radio"]:checked {
 }
 .ant-input-search-button {
   background: #faeab1;
+}
+
+.category-sidebar-text {
+  color: #c58940;
+}
+.search-layout {
+  width: 1180px;
+  margin: 0 auto;
+}
+.ant-list-item {
+  padding-inline: 12px !important;
+}
+.btn-twitter {
+  width: 336px;
+  margin: 5px auto;
+  background-color: #53a7e7;
+  border: 1px solid #53a7e7;
+  color: white;
+}
+.btn-twitter:hover,
+.btn-twitter > span:hover {
+  background-color: #3495df;
+  border: 1px solid #3495df !important;
+  color: white !important;
+}
+.btn-kakao {
+  width: 336px;
+  margin: 5px auto;
+  background-color: #f3db00;
+  border: 1px solid #f3db00;
+  color: black;
+}
+.btn-kakao:hover,
+.btn-kakao > span:hover {
+  background-color: #d4c005;
+  border: 1px solid #d4c005 !important;
+  color: black !important;
+}
+.btn-facebook {
+  width: 336px;
+  margin: 5px auto;
+  background-color: #4c6ea2;
+  border: 1px solid #4c6ea2;
+  color: white;
+}
+.btn-facebook:hover,
+.btn-facebook > span:hover {
+  background-color: #587eb6;
+  border: 1px solid #587eb6 !important;
+  color: white !important;
+}
+.btn-mindpang {
+  width: 336px;
+  margin: 5px auto;
+  background-color: #c58940;
+  border: 1px solid #c58940;
+  color: white;
+}
+.btn-mindpang:hover,
+.btn-mindpang > span:hover {
+  background-color: #ca995e;
+  border: 1px solid #ca995e !important;
+  color: white !important;
 }

@@ -4,10 +4,11 @@ import { Header } from "../components/Header";
 import Link from "next/link";
 import axios from "axios";
 import { Footer } from "../components/Footer";
+import { Sidebar } from "../components/Sidebar";
 // import { Footer } from "../components/Footer";
 const { Meta } = Card;
 
-export default function Home({ items, NODE_ENV }) {
+export default function Home({ items, NODE_ENV, recentlyItems, popularItems }) {
   return (
     <>
       <Head>
@@ -68,36 +69,46 @@ export default function Home({ items, NODE_ENV }) {
       <main>
         <Header NODE_ENV={NODE_ENV} items={items} category="all" />
         <Layout className="site-layout">
-          <Row
-            className="pt-4 pb-4 px-2"
-            gutter={[8, 8]}
-            style={{ marginLeft: 0, marginRight: 0 }}
-          >
-            {items.map((item, key) => (
-              <Col
-                xs={24}
-                sm={24}
-                md={12}
-                lg={8}
-                xl={8}
-                xxl={8}
-                key={key}
-                className="pb-2"
+          <Row>
+            <Col xs={24} sm={24} md={18} lg={18} xl={18} xxl={18}>
+              <Row
+                className="pt-4 pb-4 px-2"
+                gutter={[8, 8]}
+                style={{ marginLeft: 0, marginRight: 0 }}
               >
-                <Link href={`/main/${item.link}`} target="_blank">
-                  <Card
-                    hoverable
-                    size="small"
-                    height={400}
-                    cover={<img alt={item.title} src={item.logo} />}
+                {items.map((item, key) => (
+                  <Col
+                    xs={24}
+                    sm={24}
+                    md={12}
+                    lg={8}
+                    xl={8}
+                    xxl={8}
+                    key={key}
+                    className="pb-2"
                   >
-                    <Meta
-                      title={<h2 className="text-sm py-2">{item.title}</h2>}
-                    />
-                  </Card>
-                </Link>
-              </Col>
-            ))}
+                    <Link href={`/main/${item.link}`} target="_blank">
+                      <Card
+                        hoverable
+                        size="small"
+                        height={400}
+                        cover={<img alt={item.title} src={item.logo} />}
+                      >
+                        <Meta
+                          title={<h2 className="text-sm py-2">{item.title}</h2>}
+                        />
+                      </Card>
+                    </Link>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+            <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
+              <Sidebar
+                recentlyItems={recentlyItems}
+                popularItems={popularItems}
+              />
+            </Col>
           </Row>
 
           {/* <div className="plus-add">
@@ -121,5 +132,18 @@ export const getServerSideProps = async ({ query }) => {
   const res = await axios.get(
     `${process.env.BASE_API_URL}/test/list/${searchQueryString}`
   );
-  return { props: { items: res.data, NODE_ENV: process.env.NODE_ENV } };
+  const r = await axios.get(
+    `${process.env.BASE_API_URL}/test/list/recentlyTest.php`
+  );
+  const p = await axios.get(
+    `${process.env.BASE_API_URL}/test/list/popularTest.php`
+  );
+  return {
+    props: {
+      items: res.data,
+      recentlyItems: r.data,
+      popularItems: p.data,
+      NODE_ENV: process.env.NODE_ENV,
+    },
+  };
 };

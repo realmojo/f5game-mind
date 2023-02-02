@@ -15,7 +15,7 @@ const menuItems = [
     link: "/life",
   },
   {
-    title: "연애",
+    title: "사랑",
     key: "love",
     link: "/love",
   },
@@ -23,6 +23,11 @@ const menuItems = [
     title: "건강",
     key: "health",
     link: "/health",
+  },
+  {
+    title: "돈",
+    key: "money",
+    link: "/money",
   },
   {
     title: "연예",
@@ -76,7 +81,7 @@ export const Header = ({ NODE_ENV, items, category }) => {
         )}
       </div>
       {isSearch ? (
-        <div>
+        <div className="search-layout">
           <Search
             className="w-full"
             placeholder="찾고 싶은 테스트를 검색해주세요."

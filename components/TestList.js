@@ -15,7 +15,7 @@ export const TestList = () => {
   }, []);
 
   return (
-    <Row className="mt-4 mb-24 px-4" gutter={[4, 4]}>
+    <Row className="mt-4 mb-24 px-2" gutter={[8, 8]}>
       {list.length > 0 &&
         list.map((item, key) => (
           <Col

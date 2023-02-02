@@ -5,6 +5,7 @@ import { HeadComponent } from "../../components/Head";
 import { AdsensePlay } from "../../components/Adsense/AdsensePlay";
 import { ResultLoading } from "../../components/ResultLoading";
 
+const offsets = [0, 1, 2, 3];
 export default function Play({ item }) {
   const contentLength = item.contents.length;
   const [current, setCurrent] = useState(0);
@@ -17,19 +18,19 @@ export default function Play({ item }) {
     setTestAnswer(newArr);
   };
 
-  const doNext = () => {
-    // if (index < contentLength && testAnswer[index] === undefined) {
-    //   alert("문항을 선택해 주세요");
-    //   return;
-    // }
+  const doNext = (index) => {
+    if (index < contentLength && testAnswer[index] === undefined) {
+      alert("문항을 선택해 주세요");
+      return;
+    }
 
-    // const nextValue = index + 1;
-    // if (nextValue >= item.contents.length) {
-    setIsResultLoading(true);
-    // } else {
-    //   setCurrent(nextValue);
-    // }
-    // window.scrollTo(0, 0);
+    const nextValue = index + 1;
+    if (nextValue >= item.contents.length) {
+      setIsResultLoading(true);
+    } else {
+      setCurrent(nextValue);
+    }
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Play({ item }) {
         item={item}
         canonicalUrl={`https://mindpang.com/play/${item.link}`}
       />
-      <main className={`test-main ${isResultLoading ? "loading" : ""}`}>
+      <main className="test-main">
         <Layout className="test-layout">
           {isResultLoading ? (
             <ResultLoading
@@ -52,99 +53,34 @@ export default function Play({ item }) {
             />
           ) : (
             <div>
-              {item.contents.map((content, index) => (
-                <div className="test-item mb-4" key={index}>
-                  {content && content.title.text ? (
-                    <h1 className="test-play-title">
-                      {index + 1}. {content.title.text}
-                    </h1>
-                  ) : (
-                    ""
-                  )}
-                  {content && content.title.url ? (
-                    <div>
-                      <img
-                        className="test-play-img"
-                        src={content.title.url}
-                        alt={content.title.text}
-                      />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {content ? (
-                    <Radio.Group
-                      className="mt-2"
-                      onChange={(e) =>
-                        onChangeTestAnswer(index, e.target.value)
-                      }
-                      value={testAnswer[index]}
-                    >
-                      <Space size={0} direction="vertical">
-                        {item.contents[index].questions.map(
-                          (question, _index) => {
-                            return (
-                              <React.Fragment key={`${index}-${_index}`}>
-                                {question.text ? (
-                                  <Radio
-                                    className="test-play-radio"
-                                    value={_index}
-                                  >
-                                    {question.text}
-                                  </Radio>
-                                ) : (
-                                  ""
-                                )}
-                              </React.Fragment>
-                            );
-                          }
-                        )}
-                      </Space>
-                    </Radio.Group>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              ))}
-              <div className="my-3">
-                <div className="text-center mt-4">
-                  <Button
-                    type="primary"
-                    className="btn-start"
-                    onClick={() => doNext()}
-                  >
-                    결과보기
-                  </Button>
-                </div>
-              </div>
-              {/* {offsets.map((offset, _index) => (
+              {offsets.map((offset, _index) => (
                 <div
                   className="test-item mb-4"
-                  key={index}
+                  key={Number(current) + Number(offset)}
                 >
-                  {content &&
-                  content.title.text ? (
+                  {item.contents[Number(current) + Number(offset)] &&
+                  item.contents[Number(current) + Number(offset)].title.text ? (
                     <div className="test-play-title">
-                      {index + 1}.{" "}
+                      {Number(current) + Number(offset) + 1}.{" "}
                       {
-                        content.title
+                        item.contents[Number(current) + Number(offset)].title
                           .text
                       }
                     </div>
                   ) : (
                     ""
                   )}
-                  {content &&
-                  content.title.url ? (
+                  {item.contents[Number(current) + Number(offset)] &&
+                  item.contents[Number(current) + Number(offset)].title.url ? (
                     <div>
                       <img
                         className="test-play-img"
                         src={
-                          content.title
+                          item.contents[Number(current) + Number(offset)].title
                             .url
                         }
                         alt={
-                          content.title
+                          item.contents[Number(current) + Number(offset)].title
                             .text
                         }
                       />
@@ -152,25 +88,25 @@ export default function Play({ item }) {
                   ) : (
                     ""
                   )}
-                  {content ? (
+                  {item.contents[Number(current) + Number(offset)] ? (
                     <Radio.Group
                       className="mt-2"
                       onChange={(e) =>
                         onChangeTestAnswer(
-                          index,
+                          Number(current) + Number(offset),
                           e.target.value
                         )
                       }
-                      value={testAnswer[index]}
+                      value={testAnswer[Number(current) + Number(offset)]}
                     >
                       <Space size={0} direction="vertical">
                         {item.contents[
-                          index
+                          Number(current) + Number(offset)
                         ].questions.map((question, _index) => {
                           return (
                             <React.Fragment
                               key={`${
-                                index
+                                Number(current) + Number(offset)
                               }-${_index}`}
                             >
                               {question.text ? (
@@ -192,17 +128,20 @@ export default function Play({ item }) {
                     ""
                   )}
 
-                  {index <= contentLength ? (
+                  {Number(current) + Number(offset) <= contentLength ? (
                     <>
-                      {(index) % 4 === 3 ||
-                      index === contentLength ? (
+                      {(Number(current) + Number(offset)) % 4 === 3 ||
+                      Number(current) + Number(offset) === contentLength ? (
                         <div className="my-3">
+                          {/* <div className="mt-2">
+                            <AdsensePlay slotId={item.adsenses.play} />
+                          </div> */}
                           <div className="text-center mt-4">
                             <Button
                               type="primary"
                               className="btn-start"
                               onClick={() =>
-                                doNext(index)
+                                doNext(Number(current) + Number(offset))
                               }
                             >
                               다음
@@ -217,7 +156,7 @@ export default function Play({ item }) {
                     ""
                   )}
                 </div>
-              ))} */}
+              ))}
             </div>
           )}
         </Layout>
