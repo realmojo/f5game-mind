@@ -22,11 +22,6 @@ export default function Document(NODE_ENV) {
       ) : (
         <>
           <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522"
-            crossOrigin="anonymous"
-          />
-          <script
             defer
             src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"
           />
@@ -70,6 +65,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "feybr6kyxk");`,
             }}
+          />
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522"
+            crossOrigin="anonymous"
           />
         </>
       )}

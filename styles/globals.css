@@ -364,7 +364,11 @@ input[type="radio"]:checked {
   margin: 0 auto;
 }
 .ant-list-item {
-  padding-inline: 12px !important;
+  padding-inline: 0px !important;
+  padding: 0px !important;
+}
+.ant-list-item > a {
+  padding: 12px;
 }
 .btn-twitter {
   width: 336px;

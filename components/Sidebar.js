@@ -29,14 +29,14 @@ export const Sidebar = ({ recentlyItems, popularItems }) => {
         bordered
         dataSource={recentlyItems}
         renderItem={(item) => (
-          <a href={`/main/${item.link}`} target="_self">
-            <List.Item>
+          <List.Item>
+            <a href={`/main/${item.link}`} target="_self">
               <span className="category-sidebar-text">
                 [{convertCategory(item.category)}]
               </span>{" "}
               <span className="category-sidebar-title">{item.title}</span>
-            </List.Item>
-          </a>
+            </a>
+          </List.Item>
         )}
       />
       <div className="mt-8"></div>
@@ -45,14 +45,14 @@ export const Sidebar = ({ recentlyItems, popularItems }) => {
         bordered
         dataSource={popularItems}
         renderItem={(item) => (
-          <a href={`/main/${item.link}`} target="_self">
-            <List.Item>
+          <List.Item>
+            <a href={`/main/${item.link}`} target="_self">
               <span className="category-sidebar-text">
                 [{convertCategory(item.category)}]
               </span>{" "}
               <span className="category-sidebar-title">{item.title}</span>
-            </List.Item>
-          </a>
+            </a>
+          </List.Item>
         )}
       />
     </div>
