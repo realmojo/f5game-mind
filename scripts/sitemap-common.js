@@ -13,7 +13,7 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
   );
   const pagesSitemap = `${data.map((item) => {
     return `<url>
-            <loc>${DOMAIN}/main/${encodeURI(item.link)}</loc>
+            <loc>${DOMAIN}/${item.category}/${encodeURI(item.link)}</loc>
             <lastmod>${item.regdate.substring(0, 10)}</lastmod>
           </url>
         `;

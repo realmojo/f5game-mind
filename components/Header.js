@@ -43,7 +43,7 @@ export const Header = ({ NODE_ENV, items, category }) => {
   const [searchText, setSearchText] = useState("");
   const doRandomStart = () => {
     const randomNumber = getRandomNumber(0, items.length - 1);
-    location.href = `/main/${items[randomNumber].link}`;
+    location.href = `/${items[randomNumber].key}/${items[randomNumber].link}`;
   };
   const doSearch = () => {
     setIsSearch(!isSearch);
@@ -65,6 +65,7 @@ export const Header = ({ NODE_ENV, items, category }) => {
             marginLeft: 4,
             display: "inline",
           }}
+          alt="테스트팡-로고"
         />
         <Button onClick={() => doRandomStart()}>랜덤 테스트</Button>
         <Button onClick={() => doSearch()}>검색</Button>
@@ -95,22 +96,24 @@ export const Header = ({ NODE_ENV, items, category }) => {
       ) : (
         ""
       )}
-      <ul className="mindpang-menu">
-        {menuItems.map((menu) => (
-          <li key={menu.key}>
-            <a
-              href={`/${menu.key !== "all" ? menu.key : ""}`}
-              className={`menu-item ${
-                category === menu.key ? "menu-item-active" : ""
-              }`}
-              target="_self"
-              key={menu.key}
-            >
-              {menu.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="mindpang-menu-wrap">
+        <ul className="mindpang-menu">
+          {menuItems.map((menu) => (
+            <li key={menu.key}>
+              <a
+                href={`/${menu.key !== "all" ? menu.key : ""}`}
+                className={`menu-item ${
+                  category === menu.key ? "menu-item-active" : ""
+                }`}
+                target="_self"
+                key={menu.key}
+              >
+                {menu.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 };

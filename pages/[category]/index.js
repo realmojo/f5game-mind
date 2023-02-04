@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Layout, Card, Col, Row, Button, notification } from "antd";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import Link from "next/link";
 import axios from "axios";
-import { Footer } from "../components/Footer";
-import { Sidebar } from "../components/Sidebar";
-import { HeaderMain } from "../components/HeadMain";
-// import { Footer } from "../components/Footer";
+import { Footer } from "../../components/Footer";
+import { Sidebar } from "../../components/Sidebar";
+import { HeaderMain } from "../../components/HeadMain";
+
 const { Meta } = Card;
 
-export default function Home({
+export default function Category({
   testItems,
   NODE_ENV,
+  category,
   recentlyItems,
   popularItems,
   BASE_API_URL,
@@ -27,7 +28,9 @@ export default function Home({
     });
   };
   const doMoreItem = async () => {
-    const { data } = await axios.get(`${BASE_API_URL}/test/list/?page=${page}`);
+    const { data } = await axios.get(
+      `${BASE_API_URL}/test/list/?category=${category}&page=${page}`
+    );
     if (data.length !== 0) {
       setPage(page + 1);
       setItems([...items, ...data]);
@@ -40,7 +43,7 @@ export default function Home({
       <HeaderMain />
       <main>
         {contextHolder}
-        <Header NODE_ENV={NODE_ENV} items={items} category="all" />
+        <Header NODE_ENV={NODE_ENV} items={items} category={category} />
         <Layout className="site-layout">
           <Row>
             <Col xs={24} sm={24} md={18} lg={18} xl={18} xxl={18}>
@@ -60,17 +63,21 @@ export default function Home({
                     key={key}
                     className="pb-2"
                   >
-                    <a href={`/${item.category}/${item.link}`} target="_self">
+                    <Link
+                      href={`/${item.category}/${item.link}`}
+                      target="_blank"
+                    >
                       <Card
                         hoverable
                         size="small"
-                        cover={<img alt={item.link} src={item.logo} />}
+                        height={400}
+                        cover={<img alt={item.title} src={item.logo} />}
                       >
                         <Meta
                           title={<h2 className="text-sm py-2">{item.title}</h2>}
                         />
                       </Card>
-                    </a>
+                    </Link>
                   </Col>
                 ))}
               </Row>
@@ -91,12 +98,6 @@ export default function Home({
               />
             </Col>
           </Row>
-
-          {/* <div className="plus-add">
-            <a href="https://pf.kakao.com/_gqbxixj">
-              <img src="https://f5game.s3.ap-northeast-2.amazonaws.com/plus-add.png" />
-            </a>
-          </div> */}
         </Layout>
       </main>
       <Footer />
@@ -104,14 +105,10 @@ export default function Home({
   );
 }
 
-export const getServerSideProps = async ({ query }) => {
-  const { search } = query;
-  let searchQueryString = "";
-  if (search) {
-    searchQueryString = `?search=${search}`;
-  }
+export const getServerSideProps = async ({ params }) => {
+  const { category } = params;
   const res = await axios.get(
-    `${process.env.BASE_API_URL}/test/list/${searchQueryString}`
+    `${process.env.BASE_API_URL}/test/list/?category=${category}`
   );
   const r = await axios.get(
     `${process.env.BASE_API_URL}/test/list/recentlyTest.php`
@@ -119,9 +116,9 @@ export const getServerSideProps = async ({ query }) => {
   const p = await axios.get(
     `${process.env.BASE_API_URL}/test/list/popularTest.php`
   );
-
   return {
     props: {
+      category,
       testItems: res.data,
       recentlyItems: r.data,
       popularItems: p.data,

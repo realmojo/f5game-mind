@@ -22,7 +22,7 @@ export default function Result() {
     const localName = localStorage.getItem("f5game-test-name");
     if (jsonItem === undefined) {
       alert("올바르지 않은 경로입니다.");
-      location.href = `/main/${link}`;
+      location.href = "/";
     } else {
       if (item.type === "random") {
         const result = localStorage.getItem("f5game-test-result")
@@ -37,7 +37,7 @@ export default function Result() {
 
         const totalCount = result.totalCount ? result.totalCount : 0;
         if (result === "") {
-          location.href = `/main/${link}`;
+          location.href = "/";
         }
         setItem(item);
         setResultItem(result);

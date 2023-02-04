@@ -60,29 +60,33 @@ header > .header-wrap > button:hover {
   background-color: #caa06c;
   color: white !important;
 }
-header > .mindpang-menu {
+header > .mindpang-menu-wrap {
+  border-bottom: 1px solid #d9d9d9;
+}
+header > .mindpang-menu-wrap > .mindpang-menu {
   background-color: #faf8f1;
   margin: 0px auto;
   width: 1200px;
   height: 46px;
+  padding: 0 10px;
   display: flex;
   list-style: none;
   flex-wrap: nowrap;
-  padding: 0 10px;
   /* margin-top: 20px; */
 }
 .menu-item {
   height: 46px;
   padding: 12px 20px;
-  color: #a1a2a3;
+  color: #111213;
   display: inline-block;
   font-size: 14px;
 }
 .menu-item:hover,
 .menu-item-active {
   background-color: #faeab1 !important;
-  color: #c58940 !important;
+  color: black !important;
   transition: 0.2s !important;
+  font-weight: bold;
 }
 
 main {
@@ -104,7 +108,9 @@ main {
   border-radius: 0 0 8px 8px !important;
 }
 .ant-card-body h2 {
-  color: #c58940;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .make-layout {
@@ -302,6 +308,18 @@ main {
   .ant-row {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+  .input-button-wrap {
+    padding: 10px;
+  }
+  header > .mindpang-menu-wrap {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 11px !important;
+  }
+  header > .mindpang-menu-wrap > .mindpang-menu {
+    width: 398px;
+    padding: 0;
   }
 }
 

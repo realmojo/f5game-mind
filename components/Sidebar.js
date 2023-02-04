@@ -1,25 +1,6 @@
 import React from "react";
 import { Divider, List } from "antd";
-
-const convertCategory = (value) => {
-  let convertString = value;
-  if (value.includes("life")) {
-    convertString = convertString.replace("life", "라이프");
-  }
-  if (value.includes("love")) {
-    convertString = convertString.replace("love", "사랑");
-  }
-  if (value.includes("health")) {
-    convertString = convertString.replace("health", "건강");
-  }
-  if (value.includes("entertain")) {
-    convertString = convertString.replace("entertain", "연예");
-  }
-  if (value.includes("money")) {
-    convertString = convertString.replace("money", "돈");
-  }
-  return convertString;
-};
+import { convertCategory } from "./constants";
 
 export const Sidebar = ({ recentlyItems, popularItems }) => {
   return (
@@ -30,7 +11,7 @@ export const Sidebar = ({ recentlyItems, popularItems }) => {
         dataSource={recentlyItems}
         renderItem={(item) => (
           <List.Item>
-            <a href={`/main/${item.link}`} target="_self">
+            <a href={`/${item.category}/${item.link}`} target="_self">
               <span className="category-sidebar-text">
                 [{convertCategory(item.category)}]
               </span>{" "}
@@ -46,7 +27,7 @@ export const Sidebar = ({ recentlyItems, popularItems }) => {
         dataSource={popularItems}
         renderItem={(item) => (
           <List.Item>
-            <a href={`/main/${item.link}`} target="_self">
+            <a href={`/${item.category}/${item.link}`} target="_self">
               <span className="category-sidebar-text">
                 [{convertCategory(item.category)}]
               </span>{" "}

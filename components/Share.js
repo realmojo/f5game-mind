@@ -5,11 +5,12 @@ const success = () => {
   message.success("URL이 복사되었습니다.");
 };
 export const Share = ({ item, total }) => {
+  console.log(item);
   const shareFacebook = () => {
     window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=https://mindpang.com/main/${encodeURIComponent(
-        item.link
-      )}&t=${item.title}`,
+      `https://www.facebook.com/sharer/sharer.php?u=https://mindpang.com/${
+        item.category
+      }/${encodeURIComponent(item.link)}&t=${item.title}`,
       "_blank",
       "width=600, height: 400"
     );
@@ -17,7 +18,7 @@ export const Share = ({ item, total }) => {
   const copy = () => {
     success();
     var textarea = document.createElement("textarea");
-    textarea.value = `https://mindpang.com/main/${item.link}`;
+    textarea.value = `https://mindpang.com/${item.category}/${item.link}`;
 
     document.body.appendChild(textarea);
     textarea.select();
@@ -44,16 +45,16 @@ export const Share = ({ item, total }) => {
           description: item.description,
           imageUrl: item.logo,
           link: {
-            mobileWebUrl: `https://mindpang.com/main/${item.link}`,
-            webUrl: `https://mindpang.com/main/${item.link}`,
+            mobileWebUrl: `https://mindpang.com/${item.category}/${item.link}`,
+            webUrl: `https://mindpang.com/${item.category}/${item.link}`,
           },
         },
         buttons: [
           {
             title: "플레이 하기",
             link: {
-              mobileWebUrl: `https://mindpang.com/main/${item.link}`,
-              webUrl: `https://mindpang.com/main/${item.link}`,
+              mobileWebUrl: `https://mindpang.com/${item.category}/${item.link}`,
+              webUrl: `https://mindpang.com/${item.category}/${item.link}`,
             },
           },
         ],
@@ -76,9 +77,9 @@ export const Share = ({ item, total }) => {
           <a
             href={`https://twitter.com/intent/tweet?text=${
               item.title
-            }%0A----------------%0A테스트 결과 점수 ${total}점%0Ahttps://mindpang.com/main/${encodeURI(
-              encodeURI(item.link)
-            )}%0A#테스트결과 #마인드팡`}
+            }%0A----------------%0A테스트 결과 점수 ${total}점%0Ahttps://mindpang.com/${
+              item.category
+            }/${encodeURI(encodeURI(item.link))}%0A#테스트결과 #마인드팡`}
             target="_blank"
             rel="noreferrer"
           >

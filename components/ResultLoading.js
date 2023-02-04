@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spin, Button, message } from "antd";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { AdsenseLoading } from "./Adsense/AdsenseLoading";
 // import { LoadingShare } from "./LoadingShare";
 
@@ -37,9 +36,9 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
 
   const shareFacebook = () => {
     window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=https://mindpang.com/main/${encodeURIComponent(
-        item.link
-      )}&t=${item.title}`,
+      `https://www.facebook.com/sharer/sharer.php?u=https://mindpang.com/${
+        item.category
+      }/${encodeURIComponent(item.link)}&t=${item.title}`,
       "_blank",
       "width=600, height: 400"
     );
@@ -47,7 +46,7 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
   const copy = () => {
     success();
     var textarea = document.createElement("textarea");
-    textarea.value = `https://mindpang.com/main/${item.link}`;
+    textarea.value = `https://mindpang.com/${item.category}/${item.link}`;
 
     document.body.appendChild(textarea);
     textarea.select();
@@ -75,16 +74,16 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
           description: item.description,
           imageUrl: item.logo,
           link: {
-            mobileWebUrl: `https://mindpang.com/main/${item.link}`,
-            webUrl: `https://mindpang.com/main/${item.link}`,
+            mobileWebUrl: `https://mindpang.com/${item.category}/${item.link}`,
+            webUrl: `https://mindpang.com/${item.category}/${item.link}`,
           },
         },
         buttons: [
           {
             title: "플레이 하기",
             link: {
-              mobileWebUrl: `https://mindpang.com/main/${item.link}`,
-              webUrl: `https://mindpang.com/main/${item.link}`,
+              mobileWebUrl: `https://mindpang.com/${item.category}/${item.link}`,
+              webUrl: `https://mindpang.com/${item.category}/${item.link}`,
             },
           },
         ],
@@ -105,7 +104,7 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
   useEffect(() => {
     if (testAnswer.length === 0) {
       alert("올바르지 않은 경로입니다.");
-      location.href = item.link ? `/main/${item.link}` : "/";
+      location.href = item.link ? `/${item.category}/${item.link}` : "/";
     }
     let totalCount = 0;
 
@@ -173,9 +172,9 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
           <a
             href={`https://twitter.com/intent/tweet?text=${
               item.title
-            }%0A----------------%0A테스트 결과 점수 ${total}점%0Ahttps://mindpang.com/main/${encodeURI(
-              encodeURI(item.link)
-            )}%0A#테스트결과 #마인드팡`}
+            }%0A----------------%0A테스트 결과 점수 ${total}점%0Ahttps://mindpang.com/${
+              item.category
+            }/${encodeURI(encodeURI(item.link))}%0A#테스트결과 #마인드팡`}
             target="_blank"
             rel="noreferrer"
           >
@@ -209,22 +208,6 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
           >
             링크공유 확인하기
           </Button>
-          {/* <Link
-            href={{
-              pathname: `/result/${item.link}`,
-              query: { jsonItem: JSON.stringify(item) },
-            }}
-            as={`/result/${item.link}`}
-          >
-            <Button
-              className="my-2"
-              style={{ width: 336 }}
-              type="primary"
-              size="large"
-            >
-              확인하기
-            </Button>
-          </Link> */}
         </div>
       )}
     </>
