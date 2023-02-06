@@ -170,6 +170,19 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
       ) : (
         <div className="text-center flex flex-col justify-center px-4 mt-4">
           <a
+            href="https://link.coupang.com/a/Oh3oX"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button
+              className="btn-coupang"
+              size="large"
+              onClick={() => doShare("coupang")}
+            >
+              쿠팡보고 결과보기
+            </Button>
+          </a>
+          <a
             href={`https://twitter.com/intent/tweet?text=${
               item.title
             }%0A----------------%0A테스트 결과 점수 ${total}점%0Ahttps://mindpang.com/${
@@ -186,15 +199,15 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
               트위터로 확인하기
             </Button>
           </a>
-          <Button
+          {/* <Button
             // id="kakao-link-btn"
             className="btn-kakao"
             size="large"
             onClick={() => doShare("kakao")}
           >
             카카오톡으로 확인하기
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             className="btn-facebook"
             size="large"
             onClick={() => doShare("facebook")}
@@ -207,7 +220,7 @@ export const ResultLoading = ({ item, testAnswer, slotId }) => {
             onClick={() => doShare("link")}
           >
             링크공유 확인하기
-          </Button>
+          </Button> */}
         </div>
       )}
     </>

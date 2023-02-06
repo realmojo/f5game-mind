@@ -62,6 +62,7 @@ header > .header-wrap > button:hover {
 }
 header > .mindpang-menu-wrap {
   border-bottom: 1px solid #d9d9d9;
+  background-color: #faf8f1;
 }
 header > .mindpang-menu-wrap > .mindpang-menu {
   background-color: #faf8f1;
@@ -195,14 +196,12 @@ main {
   padding-bottom: 20px;
   font-weight: bold;
   font-size: 28px;
-  color: #c58940;
+  color: black;
 }
 .test-logo > p {
   margin: 0 auto;
-  /* text-align: center; */
-  /* width: 336px; */
   font-size: 16px;
-  color: #e5ba73;
+  color: #1f2022;
 }
 .test-logo > .name-input {
   width: 100%;
@@ -316,6 +315,7 @@ main {
     overflow-x: auto;
     width: 100%;
     margin-top: 11px !important;
+    background-color: #faf8f1;
   }
   header > .mindpang-menu-wrap > .mindpang-menu {
     width: 398px;
@@ -368,7 +368,7 @@ input[type="radio"]:checked {
 }
 
 .test-layout h2 {
-  color: #c58940;
+  color: black;
 }
 .ant-input-search-button {
   background: #faeab1;
@@ -387,6 +387,19 @@ input[type="radio"]:checked {
 }
 .ant-list-item > a {
   padding: 12px;
+}
+.btn-coupang {
+  width: 336px;
+  margin: 5px auto;
+  background-color: #d92e21;
+  border: 1px solid #d92e21;
+  color: white;
+}
+.btn-coupang:hover,
+.btn-coupang > span:hover {
+  background-color: #e45d53;
+  border: 1px solid #e45d53 !important;
+  color: white !important;
 }
 .btn-twitter {
   width: 336px;
