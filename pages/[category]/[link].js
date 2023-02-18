@@ -63,7 +63,7 @@ export default function CategoryMain({
                         onChange={onChangeName}
                       />
                     </div>
-                    {/* <AdsenseStart slotId={item.adsenses.main} /> */}
+                    <AdsenseStart slotId={item.adsenses.main} />
                     <div className="text-center pt-2">
                       <a href={`/play/${item.link}`}>
                         <Button type="primary" className="btn-start">

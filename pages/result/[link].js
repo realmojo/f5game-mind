@@ -118,7 +118,7 @@ export default function Result() {
               <h2 className="px-2 text-xl font-bold">
                 👉 다른 테스트 하러가기
               </h2>
-              {/* <AdsenseComplete slotId={item.adsenses.result} /> */}
+              <AdsenseComplete slotId={item.adsenses.result} />
               <TestList />
             </React.Fragment>
           ) : (
